@@ -1,10 +1,7 @@
-FROM centos:latest
-
-# Update packages and install dependencies
-RUN yum update -y && \
+RUN yum-config-manager --add-repo=http://mirror.centos.org/centos/8/BaseOS/x86_64/os/ && \
+    yum update -y && \
     yum install -y httpd zip unzip && \
     yum clean all
-
 # Add the website zip file and extract it
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
 WORKDIR /var/www/html/
