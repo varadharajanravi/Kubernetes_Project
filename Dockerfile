@@ -1,5 +1,9 @@
 FROM centos:8
 #MAINTAINER varadharajan69@gmail.com
+FROM centos:8
+RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-*.repo && \
+    sed -i 's/#baseurl/baseurl/g' /etc/yum.repos.d/CentOS-*.repo && \
+    sed -i 's/http:\/\/mirror\.centos\.org/https:\/\/mirrors.aliyun.com/g' /etc/yum.repos.d/CentOS-*.repo
 RUN yum install -y \
     httpd \
     zip \
