@@ -1,7 +1,5 @@
-FROM centos:8
+FROM  centos:latest
 MAINTAINER varadharajan69@gmail.com
-RUN yum update -y && \
-    yum clean all
 RUN yum install -y httpd \
  zip\
  unzip
