@@ -1,8 +1,7 @@
-FROM  centos:latest
+FROM centos:latest
+RUN echo -e "[base]\nname=CentOS-8 - Base\nbaseurl=http://mirror.centos.org/centos/8/BaseOS/x86_64/os/\ngpgcheck=1\ngpgkey=http://mirror.centos.org/centos/RPM-GPG-KEY-CentOS-8\nenabled=1\n" > /etc/yum.repos.d/custom.repo
 MAINTAINER vikashashoke@gmail.com
-RUN yum install -y httpd \
- zip\
- unzip
+RUN yum install -y httpd zip unzip
 ADD https://www.free-css.com/assets/files/free-css-templates/download/page254/photogenic.zip /var/www/html/
 WORKDIR /var/www/html/
 RUN unzip photogenic.zip
